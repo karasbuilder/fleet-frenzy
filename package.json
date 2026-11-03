@@ -1,0 +1,23 @@
+{
+  "name": "fleet-frenzy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Fleet Frenzy — classic 10x10 Battleship vs bot, built with Phaser 4 for UTXOPlay",
+  "type": "module",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build --base=./",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "phaser": "4.2.1"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "^7.1.0",
+    "vitest": "^5.0.5"
+  }
+}

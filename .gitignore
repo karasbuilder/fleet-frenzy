@@ -1,0 +1,4 @@
+node_modules
+dist
+*.utxoplay
+.DS_Store
