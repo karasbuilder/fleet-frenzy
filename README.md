@@ -29,6 +29,4 @@ Output is in `dist/` with relative asset paths.
 node tools/package-game.mjs <project-id> ./dist ./release.utxoplay
 ```
 
-## Credits
 
-Art and audio from [karasbuilder/battle-ship](https://github.com/karasbuilder/battle-ship).
