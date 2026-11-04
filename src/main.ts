@@ -1,6 +1,7 @@
 import Phaser from "phaser";
 import "./style.css";
 import { bindStage, getStage } from "./game/stage";
+import { bindHosting, reportFailure } from "./game/hosting";
 import { BattleScene } from "./scenes/BattleScene";
 import { BootScene } from "./scenes/BootScene";
 import { GateScene } from "./scenes/GateScene";
@@ -20,8 +21,11 @@ const game = new Phaser.Game({
   height: Math.round(initial.cssH * initial.ratio),
   scale: { mode: Phaser.Scale.NONE },
   input: { activePointers: 2, touch: { capture: true } },
+  loader: { imageLoadType: "HTMLImageElement", crossOrigin: "anonymous" },
   audio: { disableWebAudio: false },
   scene: [BootScene, MenuScene, PlacementScene, BattleScene, ResultScene, GateScene],
 });
 
 bindStage(game, host);
+bindHosting(game);
+game.canvas.addEventListener("webglcontextlost", () => reportFailure("Graphics were interrupted. Please retry."));

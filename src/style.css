@@ -31,3 +31,11 @@ body {
   padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px)
     env(safe-area-inset-left, 0px);
 }
+[hidden] { display: none !important; }
+#host-tools { position: fixed; top: max(8px, env(safe-area-inset-top)); right: max(8px, env(safe-area-inset-right)); display: flex; gap: 5px; z-index: 5; }
+#host-tools button { min-height: 36px; padding: 5px 9px; font-size: clamp(13px, .7vw, 18px); }
+button { cursor: pointer; border: 1px solid #bfe8ff80; border-radius: 9px; background: #062c5aeb; color: white; font: bold clamp(13px, .9vw, 20px) system-ui, sans-serif; padding: 10px 16px; }
+button:focus-visible { outline: 3px solid #ffd529; outline-offset: 3px; }
+.host-overlay { position: fixed; inset: 0; z-index: 10; display: grid; place-items: center; padding: max(20px, env(safe-area-inset-top)) max(20px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(20px, env(safe-area-inset-left)); background: #021a3ae8; color: white; font: 18px system-ui, sans-serif; text-align: center; }
+.host-overlay div { max-width: 440px; }
+.host-overlay button { margin: 6px; min-height: 44px; }

@@ -1,0 +1,49 @@
+{
+  "id": "fleet-frenzy",
+  "title": "Fleet Frenzy",
+  "subtitle": "Deploy your fleet. Outsmart your rival.",
+  "genre": "Strategy",
+  "mode": "Single-player",
+  "description": "Classic 10×10 Battleship against three bot difficulties: Cadet, Captain and Admiral. Arrange five ships, hunt the rival fleet and keep firing after a hit. Sink all 17 enemy ship cells to win.",
+  "cover": "/games/fleet-frenzy/cover.png",
+  "version": "1.0.0",
+  "runtime": "browser",
+  "hosting": "utxoplay",
+  "pricing": "free",
+  "priceCkb": "0",
+  "controls": "Drag ships to place them; tap or R rotates. S shuffles. Enter starts. Select a rival tile, then tap it again, press Enter or choose BLAST to fire. Escape pauses. Landscape touch supported.",
+  "players": "1 player · AI opponents",
+  "headline": "Deploy your fleet.|Rule the ocean.",
+  "heroDescription": "Choose your rival, position your ships and read the ocean. A hit earns another shot. Sink the rival fleet before yours goes under.",
+  "caption": "FLEET FRENZY · BY KARAS",
+  "myelin": {
+    "based": false
+  },
+  "developer": {
+    "name": "Karas",
+    "address": null,
+    "sourceUrl": "https://github.com/karasbuilder/fleet-frenzy"
+  },
+  "publisher": {
+    "name": "Karas",
+    "address": null
+  },
+  "presentation": {
+    "accent": "#09b8e7",
+    "tag": "BATTLESHIP AT SEA",
+    "length": "Three bot difficulties · quick battles",
+    "input": "Mouse + keyboard · landscape touch",
+    "note": "Free to play. Progress lasts for this visit.",
+    "repo": "fleet-frenzy"
+  },
+  "sourceUrl": "https://github.com/karasbuilder/fleet-frenzy",
+  "sourceRevision": "bf854c2433b1eb0750c49b490f36fa0085cd41bd",
+  "replayDescription": "Local single-player matches against AI. In-memory progress resets on reload. No cloud saves, Myelin replay verification or CKB settlement.",
+  "tags": [
+    "strategy",
+    "puzzle",
+    "singleplayer",
+    "short-sessions",
+    "touch-friendly"
+  ]
+}

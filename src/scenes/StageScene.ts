@@ -11,13 +11,20 @@ export abstract class StageScene extends Phaser.Scene {
     this.relayout();
     const off = onStageChange(() => this.relayout());
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, off);
+    const clear = () => this.clearHeldInput();
+    this.events.on("utxoplay:clear-input", clear);
+    this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => this.events.off("utxoplay:clear-input", clear));
   }
+
+  protected clearHeldInput(): void { this.input.keyboard?.resetKeys(); }
 
   protected relayout(): void {
     this.stage = getStage();
     const { W, H, zoom } = this.stage;
     this.tweens.killAll();
-    this.children.removeAll(true);
+    // DisplayList.removeAll(true) skips removal callbacks; unlike a Container,
+    // it does not destroy children. Explicit destruction also detaches input.
+    for (const child of [...this.children.list]) child.destroy();
     const cam = this.cameras.main;
     cam.setZoom(zoom);
     cam.centerOn(W / 2, H / 2);

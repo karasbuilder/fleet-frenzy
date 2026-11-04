@@ -2,7 +2,7 @@ import { DIFFICULTY_LABEL } from "../core/types";
 import type { Difficulty } from "../core/types";
 import { setMuted, startMusic } from "../game/audio";
 import { session } from "../game/session";
-import { BRIDGE_KEEPOUT } from "../game/stage";
+import { BRIDGE_KEEPOUT, reducedMotion } from "../game/stage";
 import { COLOR } from "../game/theme";
 import { Button } from "../ui/Button";
 import { StageScene } from "./StageScene";
@@ -25,7 +25,7 @@ export class MenuScene extends StageScene {
 
     const logo = this.add.image(W / 2, H * 0.2, "logo");
     logo.setScale(Math.min(560, W * 0.55) / logo.width);
-    this.tweens.add({ targets: logo, y: logo.y - 6, duration: 2200, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
+    if (!reducedMotion()) this.tweens.add({ targets: logo, y: logo.y - 6, duration: 2200, yoyo: true, repeat: -1, ease: "Sine.easeInOut" });
 
     this.label(W / 2, top + H * 0.37, "CHOOSE YOUR RIVAL", 22, "#bfe8ff");
 
