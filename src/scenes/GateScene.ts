@@ -1,5 +1,5 @@
 import Phaser from "phaser";
-import { getStage, onStageChange } from "../game/stage";
+import { getStage, onStageChange, reducedMotion } from "../game/stage";
 import { COLOR } from "../game/theme";
 import { makeText } from "./StageScene";
 
@@ -22,7 +22,7 @@ export class GateScene extends Phaser.Scene {
     phone.lineStyle(6, 0xffffff, 1).strokeRoundedRect(-34, -56, 68, 112, 12);
     phone.fillStyle(COLOR.yellow, 1).fillCircle(0, 42, 5);
     this.pivot = this.add.container(0, 0, [phone]);
-    this.tweens.add({ targets: this.pivot, angle: 90, duration: 900, yoyo: true, repeat: -1, hold: 600, ease: "Sine.easeInOut" });
+    if (!reducedMotion()) this.tweens.add({ targets: this.pivot, angle: 90, duration: 900, yoyo: true, repeat: -1, hold: 600, ease: "Sine.easeInOut" });
     this.title = makeText(this, 0, 0, "Rotate your device", 28);
     this.subtitle = makeText(this, 0, 0, "Fleet Frenzy plays in landscape", 17, "#bfe8ff");
 

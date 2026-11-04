@@ -53,7 +53,7 @@ function measure(cssW: number, cssH: number): Stage {
     H: h / scale,
     zoom: scale * ratio,
     safe: { top: css.top / scale, right: css.right / scale, bottom: css.bottom / scale, left: css.left / scale },
-    rotateGate: h > w && w < 700,
+    rotateGate: h > w && (w < 700 || window.matchMedia("(pointer: coarse)").matches || navigator.maxTouchPoints > 0),
   };
 }
 

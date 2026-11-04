@@ -10,6 +10,18 @@
   <body>
     <div id="game"></div>
     <div id="safe-probe" aria-hidden="true"></div>
+    <nav id="host-tools" aria-label="Game menu" hidden>
+      <button id="host-return">Store</button>
+      <button id="host-pause-button">Pause</button>
+      <button id="host-fullscreen" aria-label="Enter fullscreen" title="Fullscreen">⛶</button>
+    </nav>
+    <section id="host-pause" class="host-overlay" role="dialog" aria-modal="true" aria-label="Game paused" hidden>
+      <div><h1>Paused</h1><p>This local match is paused. Progress lasts for this visit.</p>
+        <button id="host-resume">Resume</button><button id="host-pause-return">Return to Store</button></div>
+    </section>
+    <section id="host-error" class="host-overlay" role="alert" hidden>
+      <div><h1>Unable to load the fleet</h1><p>Please retry loading Fleet Frenzy.</p><button id="host-retry">Retry</button></div>
+    </section>
     <script type="module" src="./src/main.ts"></script>
   </body>
 </html>

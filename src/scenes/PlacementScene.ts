@@ -34,6 +34,12 @@ export class PlacementScene extends StageScene {
     this.drag = null;
   }
 
+  protected clearHeldInput(): void {
+    super.clearHeldInput();
+    this.drag = null;
+    this.board?.showGhost(null, true);
+  }
+
   protected build(): void {
     const { W, H, safe } = this.stage;
     const top = safe.top + 74;

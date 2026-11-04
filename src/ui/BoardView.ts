@@ -90,6 +90,13 @@ export class BoardView {
       this.scene.input.on("pointerupoutside", handlers.up);
       this.scene.input.on("pointerup", handlers.up);
     }
+    this.zone.once(Phaser.GameObjects.Events.DESTROY, () => {
+      if (handlers.move) this.scene.input.off("pointermove", handlers.move);
+      if (handlers.up) {
+        this.scene.input.off("pointerupoutside", handlers.up);
+        this.scene.input.off("pointerup", handlers.up);
+      }
+    });
   }
 
   setShips(ships: readonly Ship[], style: ShipStyle = {}): void {

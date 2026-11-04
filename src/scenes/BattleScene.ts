@@ -117,7 +117,7 @@ export class BattleScene extends StageScene {
     this.renderBoards();
     this.setBanner(this.bannerText, this.bannerColor);
     this.syncControls();
-    if (this.confirming) this.askSurrender();
+    if (this.confirming) { this.confirming = false; this.askSurrender(); }
   }
 
   private blastImage!: Phaser.GameObjects.Image;
@@ -286,8 +286,9 @@ export class BattleScene extends StageScene {
   }
 
   private askSurrender(): void {
-    if (this.phase === "over") return;
+    if (this.phase === "over" || this.confirming) return;
     this.confirming = true;
+    this.time.paused = true;
     const { W, H } = this.stage;
     const shade = this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0.6).setInteractive().setDepth(100);
     const box = this.add.graphics().setDepth(101);
@@ -296,10 +297,13 @@ export class BattleScene extends StageScene {
     const text = this.label(W / 2, H / 2 - 50, "Surrender this battle?", 30).setDepth(102);
     const close = () => {
       this.confirming = false;
+      this.time.paused = false;
       [shade, box, text, yes, no].forEach((o) => o.destroy());
     };
     const yes = new Button(this, { x: W / 2 - 110, y: H / 2 + 45, w: 190, h: 56, text: "SURRENDER", fill: COLOR.rival, size: 20, onClick: () => {
       this.confirming = false;
+      this.time.removeAllEvents();
+      this.time.paused = false;
       this.match.surrender();
       this.finish();
     } }).setDepth(102);
